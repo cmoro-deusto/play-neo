@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                   controllers.Application.index()
+
+# Contacts
+GET         /api/v1/contacts                    controllers.Contacts.all()
+GET         /api/v1/contacts/count              controllers.Contacts.count()
+GET         /api/v1/contacts/:id                controllers.Contacts.findByObjectId(id: String)
+POST        /api/v1/contacts                    controllers.Contacts.add()
+POST        /api/v1/contacts/list               controllers.Contacts.addList()
+
+# Users
+GET         /api/v1/users                       controllers.Users.all()
+GET         /api/v1/users/count                 controllers.Users.count()
+GET         /api/v1/users/:id                   controllers.Users.findByObjectId(id: String)
+GET         /api/v1/users/:id/knows             controllers.Users.knows(id: String)
+POST        /api/v1/users/:id/knows             controllers.Users.addKnown(id: String)
+POST        /api/v1/users/:id/knows/list        controllers.Users.addKnownList(id: String)
+POST        /api/v1/users                       controllers.Users.add()
+POST        /api/v1/users/list                  controllers.Users.addList()
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
